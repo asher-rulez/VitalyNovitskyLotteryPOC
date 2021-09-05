@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VitalyNovitskyLotteryPOC.Adapters\VitalyNovitskyLotteryPOC.Adapters.csproj" />
     <ProjectReference Include="..\VitalyNovitskyLotteryPOC.Common\VitalyNovitskyLotteryPOC.Common.csproj" />
+    <ProjectReference Include="..\VitalyNovitskyLotteryPOC.DAL\VitalyNovitskyLotteryPOC.DAL.csproj" />
   </ItemGroup>
 
 

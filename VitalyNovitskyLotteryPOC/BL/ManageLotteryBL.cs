@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using VitalyNovitskyLotteryPOC.API.DAL;
 using VitalyNovitskyLotteryPOC.API.Entities;
-using VitalyNovitskyLotteryPOC.Common.Adapters;
+using VitalyNovitskyLotteryPOC.Common.Interfaces;
 using VitalyNovitskyLotteryPOC.Common.DTOs;
 
 namespace VitalyNovitskyLotteryPOC.API.BL
@@ -32,7 +32,7 @@ namespace VitalyNovitskyLotteryPOC.API.BL
             return await LotteryPlayerWithMagicNumberDTO.GetPlayerWithCalculatedMagicNumber(winner);
         }
 
-        public async Task AttemptPlayLottery(PlayLotteryAttemptDTO playLotteryAttemptDTO)
+        public async Task<PlayLotteryAttemptResultDTO> AttemptPlayLottery(PlayLotteryAttemptRequestDTO playLotteryAttemptDTO)
         {
             var getTicketsTasks = new List<Task<int?>>();
             for (int i = 0; i < playLotteryAttemptDTO.NumberOfTickets; i++)
@@ -40,18 +40,20 @@ namespace VitalyNovitskyLotteryPOC.API.BL
 
             Task.WaitAll(getTicketsTasks.ToArray());
 
-            await Container.Resolve<IHaveAccessToData>().CreateOrUpdatePlayer(new LotteryPlayerRecord
+            return await Container.Resolve<IHaveAccessToData>().CreateOrUpdatePlayer(new LotteryPlayerRecord
             {
                 PlayerName = playLotteryAttemptDTO.UserName,
                 Score = getTicketsTasks.Where(t => t.Result.HasValue).Sum(t => t.Result.Value)
             });
         }
 
-        public async Task RemoveWinner()
+        public async Task<LotteryPlayerWithMagicNumberDTO> RemoveWinnerAndGetNextOne()
         {
             var winner = await GetWinner();
             if(winner != null)
                 await Container.Resolve<IHaveAccessToData>().RemovePlayerByName(winner.PlayerName);
+
+            return await GetWinner();
         }
 
         public async Task<List<LotteryPlayerRecord>> GetAllPlayers()

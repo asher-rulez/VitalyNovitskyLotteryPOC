@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VitalyNovitskyLotteryPOC.Common.Adapters
+namespace VitalyNovitskyLotteryPOC.Common.Interfaces
 {
     public interface ILotteryRandomizer
     {

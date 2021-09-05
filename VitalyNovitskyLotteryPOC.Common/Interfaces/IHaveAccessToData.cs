@@ -10,7 +10,7 @@ namespace VitalyNovitskyLotteryPOC.API.DAL
     public interface IHaveAccessToData
     {
         Task<IEnumerable<LotteryPlayerRecord>> GetAllPlayers();
-        Task CreateOrUpdatePlayer(LotteryPlayerRecord player);
+        Task<PlayLotteryAttemptResultDTO> CreateOrUpdatePlayer(LotteryPlayerRecord player);
         Task RemovePlayerByName(string playerName);
     }
 }

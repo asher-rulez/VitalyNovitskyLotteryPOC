@@ -23,7 +23,7 @@ namespace VitalyNovitskyLotteryPOC.Controllers
 
 
         [HttpPost("PlayLottery")]
-        public async Task<IActionResult> PlayLottery([FromBody]PlayLotteryAttemptDTO playLotteryAttemptDTO, CancellationToken cancellationToken)
+        public async Task<IActionResult> PlayLottery([FromBody]PlayLotteryAttemptRequestDTO playLotteryAttemptDTO, CancellationToken cancellationToken)
         {
             if(playLotteryAttemptDTO == null)
                 return StatusCode((int)HttpStatusCode.BadRequest, BaseResponseDTO.GetFailureResponse("Invalid request DTO"));
@@ -35,9 +35,11 @@ namespace VitalyNovitskyLotteryPOC.Controllers
 
             try
             {
-                await Container.Resolve<IManageLotteryBL>().AttemptPlayLottery(playLotteryAttemptDTO);
+                var result = await Container.Resolve<IManageLotteryBL>().AttemptPlayLottery(playLotteryAttemptDTO);
 
-                return Accepted();
+                return result == null
+                    ? NotFound()
+                    : (IActionResult)Ok(result);
             }
             catch (Exception ex)
             {

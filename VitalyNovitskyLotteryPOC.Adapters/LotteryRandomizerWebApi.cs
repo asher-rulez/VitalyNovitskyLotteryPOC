@@ -5,8 +5,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using VitalyNovitskyLotteryPOC.Common.Interfaces;
 
-namespace VitalyNovitskyLotteryPOC.Common.Adapters
+namespace VitalyNovitskyLotteryPOC.Adapters
 {
     public class LotteryRandomizerWebApi : ILotteryRandomizer
     {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VitalyNovitskyLotteryPOC.Common.DTOs
 {
-    public class PlayLotteryAttemptDTO
+    public class PlayLotteryAttemptRequestDTO
     {
         public string UserName { get; set; }
         public int NumberOfTickets { get; set; }

@@ -24,7 +24,7 @@ namespace VitalyNovitskyLotteryPOC.API.DAL
             return _instance;
         }
 
-        public async Task CreateOrUpdatePlayer(LotteryPlayerRecord player)
+        public async Task<PlayLotteryAttemptResultDTO> CreateOrUpdatePlayer(LotteryPlayerRecord player)
         {
             try
             {
@@ -34,10 +34,22 @@ namespace VitalyNovitskyLotteryPOC.API.DAL
                 if (existingPlayer != null)
                     existingPlayer.Score += player.Score;
                 else LotteryPlayers.Add(player);
-            }
-            catch
-            {
 
+                return new PlayLotteryAttemptResultDTO
+                {
+                    IsSuccess = true,
+                    ErrorMessage = null,
+                    Score = existingPlayer?.Score ?? player.Score,
+                    Highest = (existingPlayer?.Score ?? player.Score) == LotteryPlayers.Select(lp => lp.Score).Max()
+                };
+            }
+            catch (Exception ex)
+            {
+                return new PlayLotteryAttemptResultDTO
+                {
+                    IsSuccess = false,
+                    ErrorMessage = ex.ToString()
+                };
             }
             finally
             {

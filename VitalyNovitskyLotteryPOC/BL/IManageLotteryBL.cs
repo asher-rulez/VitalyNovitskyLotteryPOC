@@ -10,8 +10,8 @@ namespace VitalyNovitskyLotteryPOC.API.BL
     public interface IManageLotteryBL
     {
         Task<LotteryPlayerWithMagicNumberDTO> GetWinner();
-        Task AttemptPlayLottery(PlayLotteryAttemptDTO playLotteryAttemptDTO);
-        Task RemoveWinner();
+        Task<PlayLotteryAttemptResultDTO> AttemptPlayLottery(PlayLotteryAttemptRequestDTO playLotteryAttemptDTO);
+        Task<LotteryPlayerWithMagicNumberDTO> RemoveWinnerAndGetNextOne();
         Task<List<LotteryPlayerRecord>> GetAllPlayers();
     }
 }

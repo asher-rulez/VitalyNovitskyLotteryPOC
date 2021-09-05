@@ -12,8 +12,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using VitalyNovitskyLotteryPOC.API.BL;
 using VitalyNovitskyLotteryPOC.API.DAL;
-using VitalyNovitskyLotteryPOC.Common.Adapters;
+using VitalyNovitskyLotteryPOC.Common.Interfaces;
 using VitalyNovitskyLotteryPOC.Common.Extentions;
+using VitalyNovitskyLotteryPOC.Adapters;
 
 namespace VitalyNovitskyLotteryPOC
 {

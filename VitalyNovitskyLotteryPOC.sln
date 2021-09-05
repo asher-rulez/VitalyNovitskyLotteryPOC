@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitalyNovitskyLotteryPOC.API", "VitalyNovitskyLotteryPOC\VitalyNovitskyLotteryPOC.API.csproj", "{696CB4D8-A927-48E3-B14B-0BB5E5E48942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VitalyNovitskyLotteryPOC.API", "VitalyNovitskyLotteryPOC\VitalyNovitskyLotteryPOC.API.csproj", "{696CB4D8-A927-48E3-B14B-0BB5E5E48942}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitalyNovitskyLotteryPOC.Common", "VitalyNovitskyLotteryPOC.Common\VitalyNovitskyLotteryPOC.Common.csproj", "{2AF9F939-9B11-41D7-AC67-29409E5E0056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VitalyNovitskyLotteryPOC.Common", "VitalyNovitskyLotteryPOC.Common\VitalyNovitskyLotteryPOC.Common.csproj", "{2AF9F939-9B11-41D7-AC67-29409E5E0056}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitalyNovitskyLotteryPOC.DAL", "VitalyNovitskyLotteryPOC.DAL\VitalyNovitskyLotteryPOC.DAL.csproj", "{DC070822-1DFD-4329-8280-0180B58E844E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitalyNovitskyLotteryPOC.Adapters", "VitalyNovitskyLotteryPOC.Adapters\VitalyNovitskyLotteryPOC.Adapters.csproj", "{C84C244D-ECAE-432D-88EC-BFD10D4AC5C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotteryTester", "LotteryTester\LotteryTester.csproj", "{F96245B3-76F8-4368-A30B-6935503CE0EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{2AF9F939-9B11-41D7-AC67-29409E5E0056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AF9F939-9B11-41D7-AC67-29409E5E0056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AF9F939-9B11-41D7-AC67-29409E5E0056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC070822-1DFD-4329-8280-0180B58E844E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC070822-1DFD-4329-8280-0180B58E844E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC070822-1DFD-4329-8280-0180B58E844E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC070822-1DFD-4329-8280-0180B58E844E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84C244D-ECAE-432D-88EC-BFD10D4AC5C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84C244D-ECAE-432D-88EC-BFD10D4AC5C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84C244D-ECAE-432D-88EC-BFD10D4AC5C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84C244D-ECAE-432D-88EC-BFD10D4AC5C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F96245B3-76F8-4368-A30B-6935503CE0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F96245B3-76F8-4368-A30B-6935503CE0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F96245B3-76F8-4368-A30B-6935503CE0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F96245B3-76F8-4368-A30B-6935503CE0EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

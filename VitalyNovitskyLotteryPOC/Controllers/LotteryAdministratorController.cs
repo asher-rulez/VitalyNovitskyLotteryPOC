@@ -42,8 +42,10 @@ namespace VitalyNovitskyLotteryPOC.API.Controllers
         {
             try
             {
-                await Container.Resolve<IManageLotteryBL>().RemoveWinner();
-                return Accepted();
+                var nextWinner = await Container.Resolve<IManageLotteryBL>().RemoveWinnerAndGetNextOne();
+                return nextWinner != null
+                    ? Ok(nextWinner)
+                    : (IActionResult)Accepted();
             }
             catch(Exception ex)
             {
